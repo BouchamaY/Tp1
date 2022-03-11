@@ -42,5 +42,5 @@ case 6: {
 if (i==strlen(chaine)) { printf("\n\t horaire valide\n"); exit(0); }
 else { printf("\n\t erreur !!!\n"); exit(1); }
 }
-}+++
-}
+}\+++
+}\llllllllllll
