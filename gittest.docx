@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main() {
+char chaine[20];
+int unsigned i=0, etat=0;
+printf("donnez un horaire a verfifer: \n\t");
+gets(chaine);
+while(1) {
+switch(etat) {
+case 0: {
+if(chaine[i]=='0' || chaine[i]=='1') { etat=1; i++;}
+else if (chaine[i]=='2') { etat=2; i++; }
+else { printf("\n\t erreur !!!\n"); exit(1); }
+break;
+}
+case 1: {
+if(chaine[i]>='0' && chaine[i]<='9') { etat=3; i++; }
+else { printf("\n\t erreur !!!\n"); exit(1); }
+break;
+}
+case 2: { if(chaine[i]>='0' && chaine[i]<='3') { etat=3; i++; }
+else { printf("\n\t erreur !!!\n"); exit(1); }
+break;
+}
+case 3: {
+if (chaine[i]==':') { etat=4; i++; }
+else { printf("\n\t erreur !!!\n"); exit(1); }
+break;
+}
+case 4: {
+if(chaine[i]>='0' && chaine[i]<='5') { etat=5; i++; }
+else { printf("\n\t erreur !!!\n"); exit(1); }
+break;
+}
+case 5: {
+if(chaine[i]>='0' && chaine[i]<='9') { etat=6; i++; }
+else { printf("\n\t erreur !!!\n"); exit(1); }
+break;
+}
+case 6: {
+if (i==strlen(chaine)) { printf("\n\t horaire valide\n"); exit(0); }
+else { printf("\n\t erreur !!!\n"); exit(1); }
+}
+}
+}
